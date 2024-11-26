@@ -29,6 +29,7 @@ class App extends ConsumerWidget{
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
+                Spacer(),
 
                 ElevatedButton(
                     onPressed: (){
