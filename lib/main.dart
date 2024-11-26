@@ -1,9 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'network_request/network_request_screen.dart';
+import 'new_value/new_value.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+      ProviderScope(child: App())
+  );
 }
 
+
+class App extends ConsumerWidget{
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Welcome To My App"),),
+        body: Builder(
+          builder:(context)=> SizedBox(
+            height: double.maxFinite,
+            width: double.maxFinite,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+
+
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>NetworkRequestScreen()));
+                    },
+                    child: Text('Network Request')
+                ),
+                Spacer(),
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>NewValueScreen()));
+                    },
+                    child: Text("Store Value Using Riverpod!"),
+                ),
+                Spacer()
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -123,3 +174,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+ */
