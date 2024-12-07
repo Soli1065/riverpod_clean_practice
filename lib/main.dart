@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'network_request/network_request_screen.dart';
 import 'new_value/new_value.dart';
+import 'side_effects/side_effects_screen.dart';
 
 void main() {
   runApp(
@@ -28,6 +29,15 @@ class App extends ConsumerWidget{
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
+                Spacer(),
+
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SideEffectsScreen()));
+                    },
+                    child: Text('Side Effects!')
+                ),
 
                 Spacer(),
 
